@@ -13,6 +13,7 @@ import CommentIcon from '@mui/icons-material/Comment';
 import { makeStyles } from '@material-ui/core'
 import Divider from '@mui/material/node/Divider';
 import CommentsContainer from '../componenets/CommentsContainer';
+import { Stack } from '@mui/material';
 
 
 
@@ -22,8 +23,7 @@ const useStyles = makeStyles((theme) => ({
         marginRight: "8rem",
         marginLeft: "8rem",
         marginBottom: "1rem",
-        borderRadius:"5rem",
-        borderCollapse: "separate", 
+        borderRadius: "1.250rem",
 
     },
 
@@ -36,57 +36,66 @@ export default function PostView() {
 
     const classes = useStyles()
     return (
-        <div style={{ display: "flex", flexDirection: "vertical", }}>
-            Post View
+        <div sx={{display:"flex",}}>
+            
+        
+        <div style={{ display: "flex", }}>
 
-            <Card className={classes.card} >
-                <CardHeader
-                    avatar={
-                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                            R
-                        </Avatar>
-                    }
+                <Card className={classes.card} >
+                    <CardHeader
+                        avatar={
+                            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                                R
+                            </Avatar>
+                        }
 
-                    titleTypographyProps={{ variant: 'h6' }}
-                    title=" What would you have done differently if you ran Jurassic Park?"
-                    subheader="September 14, 2016"
-                />
-<Divider/>
-                <CardContent>
-
-
-                    <Typography variant="body2" color="text" className={classes.text} >
-                        Jurassic Park was an incredible idea and a magnificent feat of engineering, but poor protocols and a disregard for human safety killed what could have otherwise been one of the best businesses of our generation.
-
-                        Ultimately, I think that if you wanted to run the park successfully and keep visitors safe, the most important thing to prioritize would be…
-                    </Typography>
-                </CardContent>
-                <CardActions disableSpacing>
-                    <IconButton aria-label="add to favorites">
-                        <ThumbUpIcon />
-                        <div style={{ size: "2" }}>
-                            44
-                        </div>
-                    </IconButton>
-                    <IconButton aria-label="share">
-                        <ThumbDownIcon />
-                        <div style={{ size: "2" }}>
-                            1
-                        </div>
-                    </IconButton>
-                    <IconButton aria-label="add to favorites">
-                        <CommentIcon />
-                        <div style={{ size: "2" }}>
-                            100
-                        </div>
-                    </IconButton>
+                        titleTypographyProps={{ variant: 'h6' }}
+                        title=" What would you have done differently if you ran Jurassic Park?"
+                        subheader="September 14, 2016"
+                    />
+                    <Divider />
+                    <CardContent>
 
 
+                        <Typography variant="body2" color="text" className={classes.text} >
+                            Jurassic Park was an incredible idea and a magnificent feat of engineering, but poor protocols and a disregard for human safety killed what could have otherwise been one of the best businesses of our generation.
 
-                </CardActions>
+                            Ultimately, I think that if you wanted to run the park successfully and keep visitors safe, the most important thing to prioritize would be…
+                        </Typography>
+                    </CardContent>
+                    <CardActions disableSpacing>
+                        <IconButton aria-label="add to favorites">
+                            <ThumbUpIcon />
+                            <div style={{ size: "2" }}>
+                                44
+                            </div>
+                        </IconButton>
+                        <IconButton aria-label="share">
+                            <ThumbDownIcon />
+                            <div style={{ size: "2" }}>
+                                1
+                            </div>
+                        </IconButton>
+                        <IconButton aria-label="add to favorites">
+                            <CommentIcon />
+                            <div style={{ size: "2" }}>
+                                100
+                            </div>
+                        </IconButton>
 
-            </Card>
-            <CommentsContainer/>
+
+
+                    </CardActions>
+
+                </Card>
+                        
+                       
+
+        </div>   
+        <div style={{display:"flex",justifyContent:"center",alignItems:'center'}}>
+        <CommentsContainer />
+        </div>
+           
         </div>
     );
 }

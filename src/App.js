@@ -4,30 +4,35 @@ import ResponsiveAppBar from './componenets/Header';
 import Post from './componenets/Post';
 import Grid from '@mui/material/Grid';
 import { Stack } from '@mui/material/node';
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import PostView from './pages/PostView';
+import { InitialData } from './store/actions';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  const data = useSelector(state => state)
+  console.log(data)
+  useEffect(() => {
+    dispatch(InitialData())
+    console.log(data)
+  }, [])
+  useEffect(() => {
+    console.log(data)
+  }, [data])
   return (
     <div className="App">
-      {/* <Grid container spacing={2}>
-        <Grid item>
-        </Grid>
-        <Grid item>
-               </Grid>
-      </Grid>
-      <Stack spacing={2}>
-      
-      <Post/> 
-      <Post/> 
-      <Post/> 
-      </Stack> */}
-    <ResponsiveAppBar/>
-    <Routes>
-      <Route path='/' element={<Post />}/>
-      <Route path='/post/:id' element={<PostView />}/>
 
-    </Routes>
+      <ResponsiveAppBar />
+      <Routes>
+        <Route path='/' element={<Post />} />
+        <Route path='/post/:id' element={<PostView data={data} />} />
+
+      </Routes>
     </div>
   );
 }

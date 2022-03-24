@@ -21,6 +21,7 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import Reddit from '../icons/Reddit.svg'
 import { Link } from 'react-router-dom';
+import PostFormContainer from './PostFormContainer';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -82,6 +83,9 @@ const ResponsiveAppBar = () => {
         setAnchorElUser(event.currentTarget);
     };
     const classes = useStyles(border)
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
 
 
@@ -120,8 +124,8 @@ const ResponsiveAppBar = () => {
                                         <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                                     </IconButton>
                                 </Tooltip>
-                                <Button variant='contained' style={{ borderRadius: "15px", color: "#ffff", backgroundColor: "#E11D00", border: "none", boxShadow: "none" }} className={classes.newPostButton}>New Post</Button>
-
+                                <Button onClick={handleOpen}  variant='contained' style={{ borderRadius: "15px", color: "#ffff", backgroundColor: "#E11D00", border: "none", boxShadow: "none" }} >New Post</Button>
+                                <PostFormContainer open={open} handleClose={handleClose}/>
                             </div>
                         </Toolbar>
                     </AppBar>
