@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-
+import ResponsiveAppBar from './componenets/Header';
+import Post from './componenets/Post';
+import Grid from '@mui/material/Grid'
+import { Stack } from '@mui/material/node';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Grid container spacing={2}>
+        <Grid item>
+        </Grid>
+        <Grid item>
+               </Grid>
+      </Grid>
+      
+      <Stack spacing={2}>
+      <ResponsiveAppBar/>
+      <Post/> 
+      </Stack>
     </div>
   );
 }
