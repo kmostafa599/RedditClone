@@ -9,10 +9,12 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CommentIcon from '@mui/icons-material/Comment';
 import { makeStyles } from '@material-ui/core'
-import { Link } from 'react-router-dom';
+import Divider from '@mui/material/node/Divider';
+import CommentsContainer from '../componenets/CommentsContainer';
+
+
 
 const useStyles = makeStyles((theme) => ({
     card: {
@@ -20,21 +22,22 @@ const useStyles = makeStyles((theme) => ({
         marginRight: "8rem",
         marginLeft: "8rem",
         marginBottom: "1rem",
+        borderRadius:"5rem",
+        borderCollapse: "separate", 
+
     },
-    openPost: {
-        marginLeft: 'auto',
-    },
+
     text: {
         textAlign: "left"
     },
 
 }))
-export default function Post() {
+export default function PostView() {
 
     const classes = useStyles()
     return (
         <div style={{ display: "flex", flexDirection: "vertical", }}>
-
+            Post View
 
             <Card className={classes.card} >
                 <CardHeader
@@ -44,15 +47,13 @@ export default function Post() {
                         </Avatar>
                     }
 
-                    title="Shrimp and Chorizo Paella"
+                    titleTypographyProps={{ variant: 'h6' }}
+                    title=" What would you have done differently if you ran Jurassic Park?"
                     subheader="September 14, 2016"
                 />
-
+<Divider/>
                 <CardContent>
-                    <Typography variant="h6" color="text" className={classes.text} >
-                        What would you have done differently if you ran Jurassic Park?
 
-                    </Typography>
 
                     <Typography variant="body2" color="text" className={classes.text} >
                         Jurassic Park was an incredible idea and a magnificent feat of engineering, but poor protocols and a disregard for human safety killed what could have otherwise been one of the best businesses of our generation.
@@ -79,19 +80,13 @@ export default function Post() {
                             100
                         </div>
                     </IconButton>
-                    <div className={classes.openPost} >
-                        <Link to='/post/2'>
-                            <label htmlFor='openPost'>Open post</label>
-                            <IconButton id='openPost' >
-                                <ArrowForwardIcon />
-                            </IconButton>
-                        </Link>
-                    </div>
+
 
 
                 </CardActions>
 
             </Card>
+            <CommentsContainer/>
         </div>
     );
 }
